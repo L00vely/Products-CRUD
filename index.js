@@ -8,7 +8,6 @@ require('dotenv').config();
 
 // importing routers
 const productsRouter = require('./routes/products.route');
-const multimediaRouter = require('./routes/multimedia.route');
 
 //setting up the PORT
 const PORT = process.env.PORT || 3000;
@@ -36,10 +35,6 @@ app.get('/', (req, res, next) => {
 
 // Products
 app.use('/api', productsRouter);
-
-// Multimedia
-app.use('/api', multimediaRouter);
-
 
 app.listen(PORT, () => {
   console.log(`Server running on PORT ${PORT}.`)

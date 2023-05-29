@@ -1,0 +1,141 @@
+/* SCSS VARIABLES */
+$primary-color: #F6F6F6;
+$secondary-color: #420039;
+$tertiary-color: #E07BE0;
+$quaternary-color: #7067CF;
+
+/* MIXINS */
+@mixin hover-items($color){
+  transition: .4s;
+  &:hover{
+    background-color: $color;
+    color: $primary-color;
+  }
+}
+
+body {
+  background-color: $primary-color;
+}
+
+main {
+  padding: 2rem;
+}
+
+button {
+  background-color: $primary-color;
+  border: none;
+  border-radius: 0.5rem;
+  width: auto;
+  height: 3rem;
+  padding: 1rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+  cursor: pointer;
+  @include hover-items($quaternary-color);
+
+  p {
+    strong {
+      color: $tertiary-color;
+      font-size: 1.2rem;
+      margin-right: 0.2rem;
+    }
+  }
+ 
+}
+
+header {
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  background-color: $primary-color;
+  padding: 2rem;
+  justify-content: space-between;
+}
+
+.menu-container {
+  background-color: $secondary-color;
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  width: auto;
+  padding: 1rem;
+}
+
+.products-page{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.products-grid-container {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  gap: 2rem;
+}
+
+.product-container{
+  border-radius: 2rem;
+  width: 22.5rem;
+  padding: 1.5rem;
+  background-color: $primary-color;
+  
+  animation: moveInUp 1s ease-out;
+
+  p {
+    text-align: justify;
+  }
+
+  strong{
+    color: $tertiary-color;
+  }
+
+  .product__info{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  
+    h3 {
+      color: $tertiary-color;
+    }
+  }
+  .product__multimedia{
+    height: 10rem;
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    img {
+      width: 10rem;
+      height: auto;
+    }
+  }
+  
+}
+
+
+
+
+
+
+/* ANIMATIONS */
+@keyframes moveInUp {
+  0% {
+      opacity: 0;
+      transform: translateY(10rem);
+  }
+
+  80% {
+      transform: translateY(-1rem);
+  }
+
+  100% {
+      opacity: 1;
+      transform: translate(0);
+  }
+}

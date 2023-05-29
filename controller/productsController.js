@@ -19,9 +19,9 @@ exports.getProducts = async(req, res, next) => {
 }
 
 exports.createProduct = async(req, res, next) => {
-    const { product_id, name, description, stock, multimedia, multimedia_path, category_id, brand_id } = req.body;
+    const { product_id, name, description, stock, price, multimedia, multimedia_path, category_id, brand_id } = req.body;
     try {
-        const product = await createProduct(product_id, name, description, stock, multimedia, multimedia_path, category_id, brand_id);
+        const product = await createProduct(product_id, name, description, stock, price, multimedia, multimedia_path, category_id, brand_id);
         return res.status(201).json({ data: product.rows })
     } catch(err) {
         return res.status(400).json({
@@ -31,9 +31,9 @@ exports.createProduct = async(req, res, next) => {
 }
 
 exports.updateProduct = async (req, res, next) => {
-    const { product_id, name, description, stock, multimedia, multimedia_path, category_id, brand_id } = req.body;
+    const { product_id, name, description, stock, price, multimedia, multimedia_path, category_id, brand_id } = req.body;
     try {
-        const product = await updateProduct(product_id, name, description, stock, multimedia, multimedia_path, category_id, brand_id);
+        const product = await updateProduct(product_id, name, description, stock, price, multimedia, multimedia_path, category_id, brand_id);
         return res.status(200).json({ data: product.rows })
     } catch(err) {
         return res.status(404).json({

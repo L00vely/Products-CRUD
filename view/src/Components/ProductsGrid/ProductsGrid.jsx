@@ -1,13 +1,15 @@
 import { useFetchProducts } from "../../hooks/useFetchProducts";
 import { Product } from "../Product/Product";
+import { Form } from "../Form/Form";
+import { Menu } from "../Menu/Menu";
 
 export const ProductsGrid = () => {
     const { products, loading } = useFetchProducts();
-    
+
     return(
-        <main className="plants-page">
-           
-          
+        <main className="products-page">
+            <Menu />
+            <div className="products-grid-container">
                 {products.map((product, index) => {
                     return(
                         <Product 
@@ -16,10 +18,7 @@ export const ProductsGrid = () => {
                         />
                     )
                 })}
-        
-
-         
-        </main>
-        
+            </div>
+        </main> 
     )
 } 

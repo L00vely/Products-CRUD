@@ -37,6 +37,7 @@ CREATE TABLE "product" (
   "name" VARCHAR(50) UNIQUE NOT NULL,
   "description" VARCHAR(500) NOT NULL,
   "stock" NUMERIC CHECK ("stock" > 0) NOT NULL,
+  "price" NUMERIC CHECK("price" > 0) NOT NULL,
   "multimedia" BYTEA NOT NULL,
   "multimedia_path" VARCHAR(300) UNIQUE NOT NULL,
   "category_id" INTEGER REFERENCES "category"("category_id") NOT NULL,
