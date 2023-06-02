@@ -1,15 +1,22 @@
 import { useFetchProducts } from "../../hooks/useFetchProducts";
 import { Product } from "../Product/Product";
-import { Form } from "../Form/Form";
 import { Menu } from "../Menu/Menu";
+import { CreateForm } from "../CreateForm/CreateForm";
+import { useState } from "react";
 
 export const ProductsGrid = () => {
     const { products, loading } = useFetchProducts();
+    const [ visible, setVisible ] = useState(false);
+
 
     return(
         <main className="products-page">
-            <Menu />
-            <div className="products-grid-container">
+            <Menu 
+                setVisible = {setVisible}
+            />
+            
+
+            { visible ? ( <div className="products-grid-container">
                 {products.map((product, index) => {
                     return(
                         <Product 
@@ -18,7 +25,10 @@ export const ProductsGrid = () => {
                         />
                     )
                 })}
-            </div>
+            </div> ) : (<></>)}
+           
+
+            
         </main> 
     )
 } 

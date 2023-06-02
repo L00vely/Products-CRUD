@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-const imagePath = '../model/assets/imgs/CP-INTEL-BX8070110400F-1.webp';
+const imagePath = '../view/src/public/audios/KC3000.m4a';
 
 fs.readFile(imagePath, (err, data) => {
   if (err) {
