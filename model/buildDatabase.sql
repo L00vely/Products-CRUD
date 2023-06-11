@@ -36,8 +36,8 @@ CREATE TABLE "product" (
   "product_id" SERIAL PRIMARY KEY,
   "name" VARCHAR(50) UNIQUE NOT NULL,
   "description" VARCHAR(500) NOT NULL,
-  "stock" NUMERIC CHECK ("stock" > 0) NOT NULL,
-  "price" NUMERIC CHECK("price" > 0) NOT NULL,
+  "stock" NUMERIC CHECK ("stock" >= 0) NOT NULL,
+  "price" NUMERIC CHECK("price" >= 0) NOT NULL,
   "multimedia" BYTEA NOT NULL,
   "multimedia_path" VARCHAR(300) UNIQUE NOT NULL,
   "category_id" INTEGER REFERENCES "category"("category_id") NOT NULL,
@@ -63,7 +63,7 @@ CREATE TABLE "orders_products" (
 CREATE TABLE "payment" (
   "payment_id" SERIAL PRIMARY KEY,
   "method" VARCHAR(100) NOT NULL,
-  "amount" NUMERIC CHECK ("amount" > 0) NOT NULL,
+  "amount" NUMERIC CHECK ("amount" >= 0) NOT NULL,
   "date" DATE NOT NULL,
   "product_id" INTEGER REFERENCES "product"("product_id") UNIQUE NOT NULL
 );

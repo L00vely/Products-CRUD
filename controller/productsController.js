@@ -33,7 +33,9 @@ exports.createProduct = async(req, res, next) => {
 }
 
 exports.updateProduct = async (req, res, next) => {
+    console.log(req.body);
     const { productId, name, description, stock, price, multimedia, multimediaPath, categoryId, brandId } = req.body;
+    console.log(productId, name, description, stock, price, multimedia, multimediaPath, categoryId, brandId);
     try {
         const product = await updateProduct(productId, name, description, stock, price, multimedia, multimediaPath, categoryId, brandId);
         return res.status(200).json({ data: product.rows })

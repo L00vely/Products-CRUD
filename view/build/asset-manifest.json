@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/static/css/main.4eea2fb6.css",
+    "main.js": "/static/js/main.2450b343.js",
+    "static/js/787.54ab60a8.chunk.js": "/static/js/787.54ab60a8.chunk.js",
+    "static/media/hyperX.mp4": "/static/media/hyperX.6d0c95965968c25874f2.mp4",
+    "static/media/KC3000.m4a": "/static/media/KC3000.8cfc6a2e456764693f42.m4a",
+    "static/media/CP-INTEL-BX8070110400F-1.webp": "/static/media/CP-INTEL-BX8070110400F-1.f2699cf8f3c42c8c4345.webp",
+    "static/media/CP-KINGSTON-HX421C14FB4-1.jpg": "/static/media/CP-KINGSTON-HX421C14FB4-1.8d6ec2df78e3cd0f32ab.jpg",
+    "static/media/CP-KINGSTON-KF548C38BBAK2-16-19a077.jpg": "/static/media/CP-KINGSTON-KF548C38BBAK2-16-19a077.ebbb00fd91def85018e8.jpg",
+    "index.html": "/index.html",
+    "static/media/_redirects": "/static/media/_redirects.e575f426e6ccb878d676",
+    "main.4eea2fb6.css.map": "/static/css/main.4eea2fb6.css.map",
+    "main.2450b343.js.map": "/static/js/main.2450b343.js.map",
+    "787.54ab60a8.chunk.js.map": "/static/js/787.54ab60a8.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.4eea2fb6.css",
+    "static/js/main.2450b343.js"
+  ]
+}
