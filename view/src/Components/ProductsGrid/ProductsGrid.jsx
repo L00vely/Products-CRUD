@@ -63,7 +63,7 @@ export const ProductsGrid = () => {
             {
                 visibleC ? (
                         <CreateForm 
-                            getProducts = {setProducts}
+                  
                         />
                     ) : <></>
             }
@@ -86,25 +86,25 @@ export const ProductsGrid = () => {
             {
                 visibleD ? (
                         <DeleteForm
-                            getProducts = {setProducts}
+                            
                         />
                     ) : <></>
             }
 
 
             <div className="products-grid-container">
-                {products.map((product, index) => {
-                    return(
-                        <Product 
-                            {...product}
-                            key = {index}
-                        />
-                    )
-                })}
-            </div> 
-           
+                {
 
-            
+                    (products.map((product, index) => {
+                        return(
+                            <Product 
+                                {...product}
+                                key = {index}
+                            />
+                        )
+                    }))
+                }
+            </div> 
         </main> 
     )
 } 

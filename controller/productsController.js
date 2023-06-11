@@ -33,9 +33,9 @@ exports.createProduct = async(req, res, next) => {
 }
 
 exports.updateProduct = async (req, res, next) => {
-    const { product_id, name, description, stock, price, multimedia, multimedia_path, category_id, brand_id } = req.body;
+    const { productId, name, description, stock, price, multimedia, multimediaPath, categoryId, brandId } = req.body;
     try {
-        const product = await updateProduct(product_id, name, description, stock, price, multimedia, multimedia_path, category_id, brand_id);
+        const product = await updateProduct(productId, name, description, stock, price, multimedia, multimediaPath, categoryId, brandId);
         return res.status(200).json({ data: product.rows })
     } catch(err) {
         return res.status(404).json({
@@ -43,7 +43,6 @@ exports.updateProduct = async (req, res, next) => {
         })
     }
 }
-
 
 exports.deleteProduct = async (req, res, next) => {
     const { id }= req.params;

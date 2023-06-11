@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Field } from '../Field/Field';
 
-export const DeleteForm = props => {
-    const { getProducts  } = props;
+export const DeleteForm = () => {
+   
     const [productId, setProductId] = useState('');
     const handleSubmit = (e) => {
       e.preventDefault();
@@ -11,12 +11,6 @@ export const DeleteForm = props => {
         method: 'DELETE',
       })
 
-      fetch(`http://localhost:3000/api/products`)
-        .then((response) => response.json())
-        .then((data) => {
-          getProducts(data.data);
-      });
-      
       setProductId('');
     };
   

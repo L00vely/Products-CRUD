@@ -17,10 +17,10 @@ export const Product = props => {
                 {["jpg", "png", "jpeg", "webp"].includes(multimedia_path.split(".").pop()) ? (
                         <Image multimedia_path={multimedia_path} />
                     ) : (
-                        ["mp4", "webm", "ogg"].includes(multimedia_path.slice(-3)) ? (
+                        ["mp4", "webm", "ogg"].includes(multimedia_path.split(".").pop()) ? (
                             <Video multimedia_path={multimedia_path} />
                           ) : (
-                            ["m4a", "mpeg", "wav", "ogg"].includes(multimedia_path.slice(-3)) ? (
+                            ["m4a", "mpeg", "wav", "ogg"].includes(multimedia_path.split(".").pop()) ? (
                                 <Audio multimedia_path={multimedia_path} />
                               ) : (
                                 <span>No se puede mostrar el archivo multimedia.</span>
