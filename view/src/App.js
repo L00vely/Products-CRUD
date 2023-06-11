@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route, Navigate, Link} from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import { ProductsGrid } from "./Components/ProductsGrid/ProductsGrid";
 import { Header } from "./Components/Header/Header";
 import './App.scss';

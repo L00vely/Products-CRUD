@@ -1,17 +1,15 @@
 const pool = require('../model/database');
 
 const { getProducts,
-    getProductsByBrandId,
-    getProductsByCategoryId,
     createProduct,
-    getProductById,
-    deleteProductById,
+    deleteProduct,
     updateProduct } = require('../model/adb');
 
 
 exports.getProducts = async(req, res, next) => {
+    const { productId, brandId, categoryId } = req.query;
     try {
-        const products = await getProducts();
+        const products = await getProducts( productId, brandId, categoryId );
         return res.status(200).json({ data: products.rows })
     } catch(err) {
         return res.status(404).json({
@@ -20,34 +18,12 @@ exports.getProducts = async(req, res, next) => {
     }
 }
 
-exports.getProductsByBrandId = async(req, res, next) => {
-    const { brand_id } = req.params;
-    try {
-        const products = await getProductsByBrandId(brand_id);
-        return res.status(200).json({ data: products.rows })
-    } catch(err) {
-        return res.status(404).json({
-            error: err
-        })
-    }
-}
-
-exports.getProductsByCategoryId = async(req, res, next) => {
-    const { category_id } = req.params;
-    try {
-        const products = await getProductsByCategoryId(category_id);
-        return res.status(200).json({ data: products.rows })
-    } catch(err) {
-        return res.status(404).json({
-            error: err
-        })
-    }
-}
 
 exports.createProduct = async(req, res, next) => {
-    const { product_id, name, description, stock, price, multimedia, multimedia_path, category_id, brand_id } = req.body;
+    const { name, description, stock, price, multimedia, multimediaPath, categoryId, brandId } = req.body;
     try {
-        const product = await createProduct(product_id, name, description, stock, price, multimedia, multimedia_path, category_id, brand_id);
+        const product = await createProduct(name, description, stock, price, multimedia, multimediaPath, categoryId, brandId);
+        
         return res.status(201).json({ data: product.rows })
     } catch(err) {
         return res.status(400).json({
@@ -68,22 +44,11 @@ exports.updateProduct = async (req, res, next) => {
     }
 }
 
-exports.getProductById = async(req, res, next) => {
-    const { id }= req.params;
-    try {
-        const product = await getProductById(id);
-        return res.status(200).json({ data: product.rows })
-    } catch(err) {
-        return res.status(404).json({
-            error: err
-        })
-    }
-}
 
-exports.deleteProductById = async (req, res, next) => {
+exports.deleteProduct = async (req, res, next) => {
     const { id }= req.params;
     try {
-        const product = await deleteProductById(id);
+        const product = await deleteProduct(id);
         return res.status(200).json({ data: product.rows })
     } catch(err) {
         return res.status(400).json({

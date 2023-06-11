@@ -3,27 +3,36 @@ const pool = require('./database');
 
 /* PRODUCTS */
 
-const getProducts = () => {
-    return pool.query('SELECT * FROM product ORDER BY product_id ASC');
-}
+const getProducts = (product_id, brand_id, category_id) => {
+    let query = "SELECT * FROM product WHERE TRUE";
+    const values = [];
 
-const getProductsByBrandId= brand_id => {
-    return pool.query('SELECT * FROM product WHERE brand_id = $1 ORDER BY product_id ASC', [ brand_id ]);
-}
+    // Verificar si se proporciona el id del producto
+    if (product_id) {
+      query += ' AND product_id = $' + (values.length + 1);
+      values.push(product_id);
+    }
 
-const getProductsByCategoryId= category_id => {
-    return pool.query('SELECT * FROM product WHERE category_id = $1 ORDER BY product_id ASC', [ category_id ]);
-}
+    // Verificar si se proporciona el id de la marca
+    if (brand_id) {
+      query += ' AND brand_id = $' + (values.length + 1);
+      values.push(brand_id);
+    }
 
-const getProductById = id => {
-    return pool.query('SELECT * FROM product WHERE product_id = $1', [ id ]);
+    // Verificar si se proporciona el id de la categoria
+    if (category_id) {
+        query += ' AND category_id = $' + (values.length + 1);
+        values.push(category_id);
+    }
+
+    return pool.query(query, values);
 }
 
 const createProduct =  (name, description, stock, price, multimedia, multimedia_path, category_id, brand_id) => {
     return pool.query('INSERT INTO product (name, description, stock, price, multimedia, multimedia_path, category_id, brand_id) VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *', [ name, description, stock, price, multimedia, multimedia_path, category_id, brand_id ]);
 }
 
-const deleteProductById = id => {
+const deleteProduct = id => {
     return pool.query('DELETE FROM product WHERE product_id = $1', [ id ]);
 }
 
@@ -34,10 +43,7 @@ const updateProduct= ( product_id, name, description, stock, price, multimedia, 
 
 module.exports = {
     getProducts,
-    getProductsByBrandId,
-    getProductsByCategoryId,
     createProduct,
-    getProductById,
-    deleteProductById,
+    deleteProduct,
     updateProduct
 };

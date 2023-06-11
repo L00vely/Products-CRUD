@@ -7,8 +7,12 @@ export const Product = props => {
     const { product_id, name, description, stock, price, multimedia_path, category_id, brand_id } = props;
     return(
         <div className="product-container">
-            <h3>{product_id}</h3>
-
+            <div className="product-top">
+                <p><strong>Product:</strong> {product_id}</p>
+                <p><strong>Category:</strong> {category_id}</p>
+                <p><strong>Brand:</strong> {brand_id}</p>
+            </div>
+            
             <div className="product__multimedia">
                 {["jpg", "png", "jpeg", "webp"].includes(multimedia_path.split(".").pop()) ? (
                         <Image multimedia_path={multimedia_path} />
@@ -32,8 +36,7 @@ export const Product = props => {
             </div>
             <p>{ description }</p>
             <strong>{stock} {stock > 1 ?  "unidades disponibles" : "unidad disponible"}  </strong>
-            <p>Category: {category_id}</p>
-            <p>Brand: {brand_id}</p>
+            
         </div>
     )
 }

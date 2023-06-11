@@ -10,7 +10,7 @@ export const Field = props => {
                 name={value}
                 value={value}
                 onChange={(e) => event(e.target.value)}
-                required
+                
             />
         </div>
     )

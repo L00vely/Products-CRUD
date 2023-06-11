@@ -87,7 +87,7 @@ header {
 .product-container{
   border-radius: 2rem;
   width: 22.5rem;
-  padding: 1.5rem;
+  padding: 2rem;
   background-color: $secondary-color; 
   color: $primary-color;
   animation: moveInUp 0.75s ease-out;
@@ -98,6 +98,20 @@ header {
 
   strong{
     color: $tertiary-color;
+  }
+
+  .product-top {
+    display: flex;
+    border-radius: 1rem;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    background-color: $primary-color;
+    gap: 2rem;
+
+    p {
+      color: $secondary-color;
+    }
   }
 
   .product__info{
@@ -132,6 +146,7 @@ form {
   gap: 1rem;
   justify-content: center;
   align-items: center;
+  animation: moveInUp 0.75s ease-out;
 
   button{
     background-color: $quaternary-color;
@@ -153,6 +168,41 @@ label {
   display: flex;
   flex-direction: row;
   gap: 2rem;
+}
+
+.boton-carga-archivos {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  cursor: pointer;
+}
+
+
+.input-carga-archivos {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0;
+  padding: 0;
+  font-size: 20px;
+  cursor: pointer;
+  opacity: 0;
+}
+
+.label-carga-archivos {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: $secondary-color;
+  color: $primary-color;
+  border: 1px solid $tertiary-color;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.label-carga-archivos:hover {
+  background-color: $quaternary-color;
+  color: $primary-color;
 }
 
 
